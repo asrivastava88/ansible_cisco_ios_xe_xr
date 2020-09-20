@@ -1,0 +1,37 @@
+---
+- name: Running show commands on Cisco IOS
+  hosts: routers
+  gather_facts: false
+  connection: local
+
+  #####################################################################################
+  ###### Behavioral Inventory Parameters are stored at "group_vars\routers.yml" #######
+  #####################################################################################
+
+  vars_prompt:
+    - name: uname
+      prompt: "Enter Your Username" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: passwd
+      prompt: "Enter Your Password"
+      private: yes # Make the text invisible to users
+      unsafe: yes # Allows special characters input by user. Its required especially in passwords.
+    - name: enable_pass
+      prompt: "Enter 'enable' Password"
+      private: yes
+      unsafe: yes
+
+  tasks:
+    - name: Run multiple commands
+      ios_command:
+        commands:
+          - show version | in uptime
+          - show ip route
+      register: output
+
+    - name: Save the output to a file
+      copy:
+        content:
+          - "{{output.stdout[0]}}"
+          - "{{output.stdout[1]}}"
+        dest: "/root/ansible/network/test_dir/{{inventory_hostname}}.txt"

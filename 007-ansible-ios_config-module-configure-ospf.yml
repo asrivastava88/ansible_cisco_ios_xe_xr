@@ -1,0 +1,34 @@
+---
+- name: Configure Router with OSPF
+  hosts: routers
+  gather_facts: true
+  connection: network_cli
+  #####################################################################################
+  ###### Behavioral Inventory Parameters are stored at "group_vars\routers.yml" #######
+  #####################################################################################
+
+  vars_prompt:
+    - name: uname
+      prompt: "Enter Your Username" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: passwd
+      prompt: "Enter Your Password"
+      private: yes # Make the text invisible to users
+      unsafe: yes # Allows special characters input by user. Its required especially in passwords.
+    - name: enable_pass
+      prompt: "Enter 'enable' Password"
+      private: yes
+      unsafe: yes
+  tasks:
+    - name: Configuring OSPF on all Routers
+      ios_config:
+        save_when: modified
+        parents: router ospf 10
+        lines:
+          - network 0.0.0.0 0.0.0.0 area 0
+          - distance 50
+          - default-information originate
+      register: output
+
+    - name: Printing Resuts
+      debug: var=output
