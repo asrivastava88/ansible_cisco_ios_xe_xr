@@ -20,6 +20,12 @@
       private: yes
       unsafe: yes
   tasks:
+    - name: Backup the configuration
+      ios_config:
+        backup: yes
+        backup_options:
+          filename: backup_{{inventory_hostname}}.cfg
+          dir_path: ./backup
     - name: Configuring OSPF on all Routers
       ios_config:
         save_when: modified

@@ -25,10 +25,9 @@
     - name: Gathering all facts
       ios_facts:
         gather_subset: all
+        gather_network_resources: all
       register: output
 
     - name: Copy all output to a file
-      copy:
-        content: "{{output}}"
-        dest: ./gather_facts_{{inventory_hostname}}_{{timestamp}}.txt
-        follow: yes
+      debug:
+        msg: "{{output}}"
