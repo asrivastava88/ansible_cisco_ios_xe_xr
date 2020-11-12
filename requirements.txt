@@ -3,3 +3,13 @@ ansible 2.9 or highter
 
 
 ## Ansible 2.10 comes with builtin IOS module  ==  ansible.builtin.ios to cisco.ios.ios
+## If you are are running an older version of Ansible, you can download the Cisco IOS Connection from Ansible Galaxy
+## ansible-galaxy collection install cisco.ios
+## To use it in a playbook, specify: cisco.ios.ios_config
+
+
+# ios_change module
+# https://docs.ansible.com/ansible/latest/collections/cisco/ios/ios_config_module.html
+
+# ios_command module
+# https://docs.ansible.com/ansible/latest/collections/cisco/ios/ios_command_module.html
