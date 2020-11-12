@@ -30,5 +30,5 @@
     - name: Copy all output to a file
       copy:
         content: "{{output}}"
-        dest: ./gather_facts_output.txt
+        dest: ./gather_facts_{{inventory_hostname}}_{{timestamp}}.txt
         follow: yes

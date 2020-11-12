@@ -1,0 +1,5 @@
+python 3.5 or higher
+ansible 2.9 or highter
+
+
+## Ansible 2.10 comes with builtin IOS module  ==  ansible.builtin.ios to cisco.ios.ios
