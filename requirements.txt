@@ -1,6 +1,8 @@
-python 3.5 or higher
-ansible 2.9 or highter
-
+python3>=3.5
+pip3
+ansible>=2.8 # Recommended Ansible version 2.9 or higher
+ncclient>=v0.5.2 # Paramiko is also compulsory and comes with "ncclient"
+passlib
 
 ## Ansible 2.10 comes with builtin IOS module  ==  ansible.builtin.ios to cisco.ios.ios
 ## If you are are running an older version of Ansible, you can download the Cisco IOS Connection from Ansible Galaxy
@@ -8,8 +10,34 @@ ansible 2.9 or highter
 ## To use it in a playbook, specify: cisco.ios.ios_config
 
 
-# ios_change module
+# ios_config module => to make any changes on the ios configuration
 # https://docs.ansible.com/ansible/latest/collections/cisco/ios/ios_config_module.html
 
-# ios_command module
+# ios_command module => to validate the "show" commands
 # https://docs.ansible.com/ansible/latest/collections/cisco/ios/ios_command_module.html
+
+
+################################################################
+################################################################
+##### All Scripts have been tested on following versions #######
+################################################################
+################################################################
+##### Ubuntu 20.4                                 ##############
+#####    lsb_release -a                           ##############
+#####    No LSB modules are available.            ##############
+#####    Distributor ID: Ubuntu                   ##############
+#####    Description:    Ubuntu 20.04.1 LTS       ##############
+#####    Release:        20.04                    ##############
+#####    Codename:       focal                    ##############
+#####                                             ##############
+##### Ansible 2.10                                ##############
+#####    ansible 2.10.3                           ##############
+#####                                             ##############
+##### Python 3.8                                  ##############
+#####    Python 3.8.5                             ##############
+#####                                             ##############
+################################################################
+################################################################
+################################################################
+################################################################
+################################################################
