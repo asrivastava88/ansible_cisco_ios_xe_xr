@@ -1,7 +1,0 @@
-######################################################################################################################################################
-## "ansible_python_interpreter" Ansible will attempt to discover a suitable Python interpreter on each target host. Detects the target OS platform, ##
-## distribution, and version, then consults a table listing the correct Python interpreter and path for each platform/distribution/version. ##########
-######################################################################################################################################################
-ansible_python_interpreter: auto
-password: "cisco"
-username: "admin"

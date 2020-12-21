@@ -1,0 +1,198 @@
+---
+- name: Collecting Username & Password
+  vars_prompt:
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: snmplocation
+      prompt: "Enter the Location's City Name (e.g. Raleigh-Durham (RDU) Intl Airport)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: station_net_24_prefix_1
+      prompt: "Enter the The first three octets of the first (lowest) /24 of the station's /21 supernet (e.g. 10.43.136)"
+      private: no # Make the text visible to users
+    - name: station_net_24_prefix_2
+      prompt: "Enter the The first three octets of the first (lowest) /24 of the station's /21 supernet (e.g. 10.43.137)"
+      private: no # Make the text visible to users
+    - name: station_net_24_prefix_3
+      prompt: "Enter the The first three octets of the first (lowest) /24 of the station's /21 supernet (e.g. 10.43.138)"
+      private: no # Make the text visible to users
+    - name: station_net_24_prefix_4
+      prompt: "Enter the The first three octets of the first (lowest) /24 of the station's /21 supernet (e.g. 10.43.139)"
+      private: no # Make the text visible to users
+    - name: station_net_24_prefix_5
+      prompt: "Enter the The first three octets of the first (lowest) /24 of the station's /21 supernet (e.g. 10.43.140)"
+      private: no # Make the text visible to users
+    - name: station_net_24_prefix_6
+      prompt: "Enter the The first three octets of the first (lowest) /24 of the station's /21 supernet (e.g. 10.43.141)"
+      private: no # Make the text visible to users
+    - name: station_net_24_prefix_7
+      prompt: "Enter the The first three octets of the first (lowest) /24 of the station's /21 supernet (e.g. 10.43.142)"
+      private: no # Make the text visible to users
+    - name: station_net_24_prefix_8
+      prompt: "Enter the The first three octets of the first (lowest) /24 of the station's /21 supernet (e.g. 10.43.143)"
+      private: no # Make the text visible to users
+    - name: mdf_subloc
+      prompt: "Sublocation name for the MDF (core switch stack, wan routers, firewalls, obm). This should be a 'tb' number. Most often this is 'tb1'"
+      private: no # Make the text visible to users
+    - name: as1_subloc
+      prompt: "Sublocation name for access switch stack number 1. This is the first remote closet. If no remote closet, use 'tb2'"
+      private: no # Make the text visible to users
+    - name: as2_subloc
+      prompt: "Sublocation name for access switch stack number 2. This is the first remote closet. If no remote closet, use 'tb3'"
+      private: no # Make the text visible to users
+    - name: as3_subloc
+      prompt: Sublocation name for access switch stack number 3. This is the first remote closet. If no remote closet, use 'tb4'"
+      private: no # Make the text visible to users
+    - name: legacy_subnet_addr_1
+      prompt: "Legacy subnet #1 addr. Example: '10.42.102.0'. Leave unset if no legacy network being retained. Typically this is used for the legacy VLAN10 subnet"
+      private: no # Make the text visible to users
+    - name: legacy_subnet_prefixlen_1
+      prompt: "Legacy subnet #1 prefix length in bits, Example: '24'. Leave unset if no legacy network being retained. Typically this is used for the legacy VLAN10 subnet"
+      private: no # Make the text visible to users
+    - name: legacy_subnet_netmask_1
+      prompt: "Legacy subnet #1 network mask, Example: '255.255.255.0'. Leave unset if no legacy network being retained. Typically this is used for the legacy VLAN10 subnet"
+      private: no # Make the text visible to users
+    - name: legacy_gateway_addr_1
+      prompt: "Legacy gateway #1 address, Example:  '10.42.102.1'. Leave unset if no legacy network being retained. Typically this is used for the legacy VLAN10 subnet"
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
