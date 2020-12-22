@@ -1,0 +1,17 @@
+---
+- name: Configuring Router Logs Settings
+  ios_config:
+    save_when: modified
+    lines:
+      - no logging console
+      - logging buffered 16384 informational
+      - logging source-interface Loopback0
+      - logging host 10.70.112.121 transport udp port 20514
+      - logging 159.49.153.31
+      - logging origin-id hostname
+      - logging facility local0
+      - logging host 10.13.3.2
+  register: logging
+
+- name: Print the output
+  debug: msg="{{logging}}"

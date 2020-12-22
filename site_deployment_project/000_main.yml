@@ -236,3 +236,5 @@
       tags: service_config
     - import_tasks: 002_hostname.yml
       tags: hostname
+    - import_tasks: 003_logging.yml
+      tags: logging
