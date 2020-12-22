@@ -1,17 +1,32 @@
 ---
 - name: Configuring Router Logs Settings
+  ios_logging:
+    aggregate:
+      - { dest: host, name: 159.49.153.31, facility: local0, state: present }
+      - { dest: host, name: 10.13.3.2, state: present, facility: local0 }
+      - {
+          dest: buffered,
+          level: informational,
+          size: 16384,
+          state: present,
+          facility: local0,
+        }
+      - { dest: console, state: absent }
+  register: logging
+
+- name: Configuring Router Logs Interfaces & Ports
   ios_config:
     save_when: modified
     lines:
-      - no logging console
-      - logging buffered 16384 informational
       - logging source-interface Loopback0
       - logging host 10.70.112.121 transport udp port 20514
-      - logging 159.49.153.31
       - logging origin-id hostname
-      - logging facility local0
-      - logging host 10.13.3.2
-  register: logging
+  register: logging_inf
 
 - name: Print the output
   debug: msg="{{logging}}"
+- name: Print the output
+  debug: msg="{{logging_inf}}"
+##############################################################################################################################################
+### https://docs.ansible.com/ansible/latest/collections/cisco/ios/ios_logging_module.html#ansible-collections-cisco-ios-ios-logging-module ###
+##############################################################################################################################################
