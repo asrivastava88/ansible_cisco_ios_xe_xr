@@ -3,7 +3,7 @@
   ios_config:
     save_when: modified
     lines:
-      - hostname "{{sitecode}}"-"{{mdf_subloc}}"-wr-1
+      - hostname {{sitecode}}-{{mdf_subloc}}-wr-1
   register: hostname
 
 - name: Print the output

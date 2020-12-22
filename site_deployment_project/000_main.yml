@@ -1,5 +1,6 @@
 ---
-- gather_facts: no
+- name: Initiating Site Deployment
+  gather_facts: no
   hosts: routers
   connection: network_cli
   #####################################################################################
@@ -22,9 +23,9 @@
       unsafe: yes
     # #####################################################################################
     # #####################################################################################
-    # - name: sitecode
-    #   prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
-    #   private: no # Make the text visible to users
+    - name: sitecode
+      prompt: "Enter the Location's City Code (e.g. rdutr or rduff)" # Promp the message while asking for user's input
+      private: no # Make the text visible to users
     # - name: snmplocation
     #   prompt: "Enter the Location's City Name (e.g. Raleigh-Durham (RDU) Intl Airport)" # Promp the message while asking for user's input
     #   private: no # Make the text visible to users
@@ -56,9 +57,9 @@
     #   private: no # Make the text visible to users
     # #####################################################################################
     # #####################################################################################
-    # - name: mdf_subloc
-    #   prompt: "Sublocation name for the MDF (core switch stack, wan routers, firewalls, obm). This should be a 'tb' number. Most often this is 'tb1'"
-    #   private: no # Make the text visible to users
+    - name: mdf_subloc
+      prompt: "Sublocation name for the MDF (core switch stack, wan routers, firewalls, obm). This should be a 'tb' number. Most often this is 'tb1'"
+      private: no # Make the text visible to users
     # - name: as1_subloc
     #   prompt: "Sublocation name for access switch stack number 1. This is the first remote closet. If no remote closet, use 'tb2'"
     #   private: no # Make the text visible to users
@@ -231,5 +232,7 @@
     # #####################################################################################
 
   tasks:
-    - import_tasks: service_config.yml
+    - import_tasks: 001_router_services.yml
       tags: service_config
+    - import_tasks: 002_hostname.yml
+      tags: hostname
