@@ -1,0 +1,10 @@
+---
+- name: Configuring Router Hostname
+  ios_config:
+    save_when: modified
+    lines:
+      - hostname "{{sitecode}}"-"{{mdf_subloc}}"-wr-1
+  register: hostname
+
+- name: Print the output
+  debug: msg="{{hostname}}"
