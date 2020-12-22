@@ -238,3 +238,5 @@
       tags: hostname
     - import_tasks: 003_logging.yml
       tags: logging
+    - import_tasks: 004_credentials.yml
+      tags: credentials
