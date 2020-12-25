@@ -21,6 +21,12 @@
       prompt: "Enter 'enable' Password"
       private: yes
       unsafe: yes
+    - name: cred_pass
+      prompt: "Enter the Password for local credentials"
+      private: yes
+      unsafe: yes
+      encrypt: sha512_crypt
+      salt_size: 7
     # #####################################################################################
     # #####################################################################################
     - name: sitecode
