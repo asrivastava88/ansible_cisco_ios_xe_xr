@@ -1,0 +1,17 @@
+---
+- name: configure hostname and domain name
+  ios_system:
+    hostname: "{{sitecode}}-{{mdf_subloc}}-wr-1"
+    domain_name: alaskaair.com
+    domain_search:
+      - horizonair.com
+      - alaskaair.com
+    name_servers:
+      - 10.13.3.240
+      - 159.49.42.254
+      - 10.70.112.254
+    lookup_enabled: no
+    state: present
+  register: system_config
+
+- debug: msg="{{system_config}}"

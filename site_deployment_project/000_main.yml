@@ -246,3 +246,5 @@
       tags: logging
     - import_tasks: 004_credentials.yml
       tags: credentials
+    - import_tasks: 005_system_config.yml
+      tags: system_config
