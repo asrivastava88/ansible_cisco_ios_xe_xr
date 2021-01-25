@@ -1,0 +1,33 @@
+---
+- name: Configuring AAA Server Bridge
+  ios_config:
+    save_when: modified
+    lines:
+      - server name se4vvacs01
+      - server name igqvvacs01
+      - ip tacacs source-interface Loopback0
+    parents: aaa group server tacacs+ ACS
+  register: aaa_service
+- name: Enabling AAA Authentication
+  ios_config:
+    save_when: modified
+    lines:
+      - aaa new-model
+      - aaa authentication password-prompt "Cisco ACS Unavailable - Local Password"
+      - aaa authentication username-prompt "Cisco ACS Unavailable - Local UserName"
+      - aaa authentication login default group ACS local
+      - aaa authentication login console local
+      - aaa authentication enable default group ACS enable
+      - aaa authorization exec default group ACS local
+      - aaa authorization commands 0 default local group ACS
+      - aaa authorization commands 1 default local group ACS
+      - aaa authorization commands 15 default local group ACS
+      - aaa accounting update newinfo
+      - aaa accounting exec default start-stop broadcast group ACS
+      - aaa accounting commands 1 default start-stop broadcast group ACS
+      - aaa accounting commands 15 default start-stop broadcast group ACS
+      - aaa session-id common
+  register: aaa_config
+
+- debug: msg="{{aaa_service}}"
+- debug: msg="{{aaa_config}}"
